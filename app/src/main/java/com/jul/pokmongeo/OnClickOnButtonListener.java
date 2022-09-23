@@ -1,2 +1,5 @@
-package com.jul.pokmongeo;public interface OnClickOnButtonListener {
+package com.jul.pokmongeo;
+
+public interface OnClickOnButtonListener {
+    public void onClickOnButton();
 }

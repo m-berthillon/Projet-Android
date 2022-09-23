@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 
 import com.jul.pokmongeo.databinding.ActivityMainBinding;
+import com.jul.pokmongeo.databinding.PokemonItemBindingImpl;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -22,7 +23,28 @@ public class MainActivity extends AppCompatActivity {
     public void showStartup() {
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
+        OnClickOnNoteListener listener = this::showNoteDetail;
         PokedexFragment fragment = new PokedexFragment();
+        fragment.setOnClickOnNoteListener(listener);
+        transaction.replace(R.id.fragment_container,fragment);
+        transaction.commit();
+    }
+    public void showNoteDetail(Pokemon p){
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        OnClickOnButtonListener listener = this::clickButtonReturn;
+        PokemonInfo fragment = new PokemonInfo(p); // à changer avec le nouveau fragment
+        fragment.setOnClickOnButtonListener(listener);
+        transaction.replace(R.id.fragment_container,fragment);
+        transaction.commit();
+    }
+
+    public void clickButtonReturn(){
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        OnClickOnNoteListener listener = this::showNoteDetail;
+        PokedexFragment fragment = new PokedexFragment(); // à changer avec le nouveau fragment
+        fragment.setOnClickOnNoteListener(listener);
         transaction.replace(R.id.fragment_container,fragment);
         transaction.commit();
     }

@@ -62,14 +62,13 @@ public class PokedexFragment extends Fragment {
                 String name = object.getString("name");
                 String image = object.getString("image");
                 String type1 = object.getString("type1");
-                String type2 = null;
                 if (object.has("type2")) {
-                    type2 = object.getString("type2");
+                    String type2 = object.getString("type2");
                     datapokemon.setType1(POKEMON_TYPE.valueOf(type2));
                 }
 
 
-                datapokemon.setOrder(i);
+                datapokemon.setOrder(i+1);
                 datapokemon.setName(name);
                 datapokemon.setFrontResource(getResources().getIdentifier(image,"drawable",binding.getRoot().getContext().getPackageName()));
                 datapokemon.setType1(POKEMON_TYPE.valueOf(type1));
@@ -80,12 +79,17 @@ public class PokedexFragment extends Fragment {
             e.printStackTrace();
         }
         //int id = getResources().getIdentifier("nomDuDrawableSansExtension","drawable",binding.getRoot().getContext().getPackageName());
-        PokemonListAdapter adapter = new PokemonListAdapter(pokemonList);
+        PokemonListAdapter adapter = new PokemonListAdapter(pokemonList, listener);
         binding.pokemonList.setAdapter(adapter);
 
         return binding.getRoot();
 
     }
+    private OnClickOnNoteListener listener;
+    public void setOnClickOnNoteListener(OnClickOnNoteListener listener){
+        this.listener=listener;
+    }
+
 
 
 }
