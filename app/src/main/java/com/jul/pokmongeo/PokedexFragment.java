@@ -62,13 +62,18 @@ public class PokedexFragment extends Fragment {
                 String name = object.getString("name");
                 String image = object.getString("image");
                 String type1 = object.getString("type1");
+                String type = null;
+                String weight = object.getString("weight");
+                String height = object.getString("height");
                 if (object.has("type2")) {
                     String type2 = object.getString("type2");
-                    datapokemon.setType1(POKEMON_TYPE.valueOf(type2));
+                    datapokemon.setType2(POKEMON_TYPE.valueOf(type2));
                 }
 
 
                 datapokemon.setOrder(i+1);
+                datapokemon.setWeight(weight);
+                datapokemon.setHeight(height);
                 datapokemon.setName(name);
                 datapokemon.setFrontResource(getResources().getIdentifier(image,"drawable",binding.getRoot().getContext().getPackageName()));
                 datapokemon.setType1(POKEMON_TYPE.valueOf(type1));

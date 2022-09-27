@@ -32,11 +32,11 @@ public class PokemonViewModel extends BaseObservable {
         return "";
     }
     @Bindable
-    public Double getWeight(){
+    public String getWeight(){
         return pokemon.getWeight();
     }
     @Bindable
-    public Double getHeight(){
+    public String getHeight(){
         return pokemon.getHeight();
     }
 

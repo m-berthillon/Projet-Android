@@ -3,8 +3,8 @@ package com.jul.pokmongeo;
 public class Pokemon {
     private int order;
     private String name;
-    private double height;
-    private double weight;
+    private String height;
+    private String weight;
     private int frontResource;
     private POKEMON_TYPE type1;
     private POKEMON_TYPE type2;
@@ -34,16 +34,16 @@ public class Pokemon {
     public void setOrder(int order) {
         this.order = order;
     }
-    public double getHeight() {
+    public String getHeight() {
         return height;
     }
-    public void setHeight(double height) {
+    public void setHeight(String height) {
         this.height = height;
     }
-    public double getWeight() {
+    public String getWeight() {
         return weight;
     }
-    public void setWeight(double weight) {
+    public void setWeight(String weight) {
         this.weight = weight;
     }
     public int getFrontResource() {
