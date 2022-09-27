@@ -7,6 +7,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.jul.pokmongeo.databinding.ActivityMainBinding;
 import com.jul.pokmongeo.databinding.PokemonItemBindingImpl;
 
@@ -18,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        bottomNav.setOnItemReselectedListener(navListener);
         showStartup();
     }
     public void showStartup() {
@@ -48,6 +52,13 @@ public class MainActivity extends AppCompatActivity {
         transaction.replace(R.id.fragment_container,fragment);
         transaction.commit();
     }
+
+    private final NavigationBarView.OnItemReselectedListener navListener = item -> {
+        int itemId = item.getItemId();
+        if (itemId == R.id.pokedex){
+            showStartup();
+        }
+    };
 }
 
 

@@ -117,13 +117,13 @@
         android:id="@+id/returnButton"
         android:layout_width="200sp"
         android:layout_height="wrap_content"
-        android:text="Retour"
+        android:layout_marginBottom="16dp"
         android:scaleType="fitCenter"
-        android:layout_marginBottom="30sp"
+        android:text="Retour"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/type1"
